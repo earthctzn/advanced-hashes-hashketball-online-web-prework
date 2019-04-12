@@ -146,7 +146,7 @@ end
 end
 
 
-def team_names(location)
+def team_names
    game_hash.each do |location, data|
     if data[:team_name] == location
       return data[:team_name]
