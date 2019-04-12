@@ -116,17 +116,3 @@ def game_hash
   }
 end
 
-def num_points_scored(name)
-  points_scored = 0
-  game_hash.each {|location, team_data|
-    # location = :home, :away
-
-    team_data[:players].each {|data_item, data_point|
-    # data_item = individual player names
-      if data_item == name
-        points_scored = data_point[:points]
-      end
-    }
-  }
-  points_scored
-end
