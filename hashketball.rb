@@ -116,3 +116,27 @@ def game_hash
   }
 end
 
+def teams
+  game_hash.values
+end
+
+def players
+  game_hash[:home][:players].merge(game_hash[:away][:players])
+end
+
+# find specific teams or players and return their values to use later
+
+def find_the_team(team_name)
+  teams.find {|team| team.fetch(:team_name) == team_name}
+end
+
+def find_the_player(name)
+  players.fetch(name)
+end
+
+#look up values
+
+def num_points_scored(name)
+  player = find_the_player(name)
+  player.fetch(:points)
+end
