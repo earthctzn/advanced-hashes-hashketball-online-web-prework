@@ -117,7 +117,7 @@ def game_hash
 end
 
  def num_points_scored(passed_name)
-  game_hash.each do |which_team, team_info|
+  game_hash.each do |team, team_info|
     team_info[:players].each do |players_name, players_info|
       if players_name == passed_name
         return players_info[:points]
