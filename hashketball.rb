@@ -147,7 +147,11 @@ end
 
 
 def team_names
-  teams.collect {|x| x.fetch(:team_name)}
+   game_hash.each do |location, data|
+    if data[:team_name] == location
+      return data[:team_name]
+      end
+    end
 end
 
 
