@@ -121,7 +121,6 @@ end
     team_info[:players].each do |players_name, players_info|
       if players_name == passed_name
         return players_info[:points]
-      else puts "invalid player"
       end
     end
   end
@@ -148,15 +147,11 @@ end
 
 
 def team_names(location)
-  names = []
-  game_hash.each do |location, data|
+   game_hash.each do |location, data|
     if data[:team_name] == location
-      data[:players].each do |team_name, data|
-        names << data[:number]
+      return data[:team_name]
       end
     end
-  end
-  number_array
 end
 
 
