@@ -146,9 +146,7 @@ end
 end
 
 
-def team_names
-  teams.map{|t| t.fetch(:team_name)}
-end
+
 
 
 def player_numbers(team_name)
