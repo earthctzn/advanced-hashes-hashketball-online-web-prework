@@ -116,3 +116,83 @@ def game_hash
   }
 end
 
+ def num_points_scored(passed_name)
+  game_hash.each do |which_team, team_info|
+    team_info[:players].each do |players_name, players_info|
+      if players_name == passed_name
+        return players_info[:points]
+      else puts "invalid player"
+      end
+    end
+  end
+end
+
+ def shoe_size(name)
+  game_hash.each do |team, data|
+    data[:players].each do |player, stats|
+      if name == player
+        return stats[:shoe]
+      end
+    end
+  end
+end
+
+
+ def team_colors (team)
+  game_hash.each do |location, data|
+    if data[:team_name] == team
+      return data[:colors]
+      end
+    end
+end
+
+
+def team_names(location)
+  names = []
+  game_hash.each do |location, data|
+    if data[:team_name] == location
+      data[:players].each do |team_name, data|
+        names << data[:number]
+      end
+    end
+  end
+  number_array
+end
+
+
+def player_numbers(team_name)
+  number_array = []
+  game_hash.each do |location, data|
+    if data[:team_name] == team_name
+      data[:players].each do |player_name, data|
+        number_array << data[:number]
+      end
+    end
+  end
+  number_array
+end
+
+
+def player_stats(name)
+  game_hash.each do |team, data|
+    data[:players].each do |player, stats|
+      if player == name
+        return stats
+      end
+    end
+  end
+end
+
+def big_shoe_rebounds
+    bigfoot = 0
+    rebounds = 0
+  game_hash.each do |location, data|
+      data[:players].each do |player_name, data|
+          if data[:shoe] > bigfoot
+            bigfoot = data[:shoe]
+            rebounds = data[:rebounds]
+      end
+    end
+  end
+  rebounds
+end
