@@ -116,10 +116,7 @@ def game_hash
   }
 end
 
-def num_points_scored(player_name)
-  # returns the number of points scored by a player
-  
-  game_hash.each do |home_away, team_info|
-    team_info[:players].each { |player, stats|  return stats[:points] if player == player_name }
-  end
+def num_points_scored(name)
+  player = find_the_player(name)
+  player.fetch(:points)
 end
